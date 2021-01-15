@@ -81,6 +81,11 @@ public class Water extends Renderable{
 	private float t_distortion;
 	private long systemTime = System.currentTimeMillis();
 
+	// Josh
+	//---//
+	public GLTexture imageH0k;
+	//---//
+	
 	public Water(int patches, GLShaderProgram shader, GLShaderProgram wireframeShader)
 	{		
 		config = new WaterConfig();
@@ -107,6 +112,11 @@ public class Water extends Renderable{
 		fft.setT_delta(config.getT_delta());
 		fft.setChoppy(config.isChoppy());
 		fft.init();
+		
+		// Josh
+		//---//
+		imageH0k = fft.h0k.getImageH0k();
+		//---//
 		
 		normalmapRenderer = new NormalRenderer(config.getN());
 		getNormalmapRenderer().setStrength(config.getNormalStrength());

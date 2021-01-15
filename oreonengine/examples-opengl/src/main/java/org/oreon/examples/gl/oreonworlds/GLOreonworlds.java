@@ -1,6 +1,7 @@
 package org.oreon.examples.gl.oreonworlds;
 
 import org.oreon.core.gl.context.GLContext;
+import org.oreon.core.gl.surface.FullScreenQuad;
 import org.oreon.examples.gl.oreonworlds.ocean.Ocean;
 import org.oreon.examples.gl.oreonworlds.terrain.Terrain;
 import org.oreon.gl.components.atmosphere.Atmosphere;
@@ -17,13 +18,20 @@ public class GLOreonworlds {
 		
 		GLDeferredEngine renderEngine = new GLDeferredEngine(); 
 //		renderEngine.setGui(new GLSystemMonitor());
+		
+		// Josh
+		//---//
+		Ocean ocean = new Ocean();
+		renderEngine.textureToDisplay = ocean.imageH0k;
+		//---//
+		
 		renderEngine.init();
 		
 		renderEngine.getSceneGraph().addObject(new Atmosphere());	
 		renderEngine.getSceneGraph().setWater(new Ocean());
 		renderEngine.getSceneGraph().setTerrain(new Terrain(TerrainShader.getInstance(),
 				TerrainWireframeShader.getInstance(), TerrainShadowShader.getInstance()));
-		
+				
 //		renderEngine.getSceneGraph().getRoot().addChild(new Palm01ClusterGroup());
 //		renderEngine.getSceneGraph().getRoot().addChild(new Plant01ClusterGroup());
 //		renderEngine.getSceneGraph().getRoot().addChild(new Grass01ClusterGroup());

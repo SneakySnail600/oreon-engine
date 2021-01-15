@@ -41,8 +41,11 @@ public class FFT {
 	protected GLShaderProgram inversionShader;
 	private TwiddleFactors twiddleFactors;
 	
-	protected H0k h0k;
-	protected Hkt hkt;
+	// Josh
+	//---//
+	public H0k h0k;
+	public Hkt hkt;
+	//---//
 	
 	public FFT(int N, int L, float amplitude, Vec2f direction, float alignment,
 			float intensity, float capillarSupressFactor){

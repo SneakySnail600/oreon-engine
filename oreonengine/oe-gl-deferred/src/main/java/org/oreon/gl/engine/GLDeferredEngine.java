@@ -79,6 +79,10 @@ public class GLDeferredEngine extends RenderEngine{
 	private boolean renderSSAOBuffer = false;
 	private boolean renderPostProcessingEffects = true;
 
+	// Josh
+	//---//
+	public GLTexture textureToDisplay;
+	//---//
 	
 	@Override
 	public void init() {
@@ -99,6 +103,12 @@ public class GLDeferredEngine extends RenderEngine{
 		GLContext.getResources().setPrimaryFbo(primarySceneFbo);
 		
 		fullScreenQuad = new FullScreenQuad();
+		
+		// Josh
+		//---//
+		fullScreenQuad.setTexture(textureToDisplay);
+		//---//
+		
 		fullScreenQuadMultisample = new FullScreenMultisampleQuad();
 		pssmFbo = new ParallelSplitShadowMapsFbo();
 		sampleCoverage = new SampleCoverage(config.getFrameWidth(), config.getFrameHeight());
