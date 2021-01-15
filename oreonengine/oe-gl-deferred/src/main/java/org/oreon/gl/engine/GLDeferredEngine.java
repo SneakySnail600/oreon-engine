@@ -104,11 +104,6 @@ public class GLDeferredEngine extends RenderEngine{
 		
 		fullScreenQuad = new FullScreenQuad();
 		
-		// Josh
-		//---//
-		fullScreenQuad.setTexture(textureToDisplay);
-		//---//
-		
 		fullScreenQuadMultisample = new FullScreenMultisampleQuad();
 		pssmFbo = new ParallelSplitShadowMapsFbo();
 		sampleCoverage = new SampleCoverage(config.getFrameWidth(), config.getFrameHeight());
@@ -381,6 +376,12 @@ public class GLDeferredEngine extends RenderEngine{
 		}
 		
 		fullScreenQuad.setTexture(currentScene);
+		
+		// Josh
+		//---//
+		fullScreenQuad.setTexture(textureToDisplay);
+		//---//
+		
 		fullScreenQuad.render();
 		
 		if (BaseContext.getConfig().isLensFlareEnabled()
