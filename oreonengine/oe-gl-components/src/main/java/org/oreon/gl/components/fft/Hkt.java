@@ -17,8 +17,9 @@ import lombok.Setter;
 
 public class Hkt {
 
+	// Josh - changes to public
 	@Getter
-	private GLTexture imageDyCoeficcients;
+	public GLTexture imageDyCoeficcients;
 	@Getter
 	private GLTexture imageDxCoefficients;
 	@Getter

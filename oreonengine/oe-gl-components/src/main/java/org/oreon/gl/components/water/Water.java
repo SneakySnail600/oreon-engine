@@ -84,6 +84,8 @@ public class Water extends Renderable{
 	// Josh
 	//---//
 	public GLTexture imageH0k;
+	public GLTexture imageH0Minusk;
+	public GLTexture imageHkt;
 	//---//
 	
 	public Water(int patches, GLShaderProgram shader, GLShaderProgram wireframeShader)
@@ -116,6 +118,8 @@ public class Water extends Renderable{
 		// Josh
 		//---//
 		imageH0k = fft.h0k.getImageH0k();
+		imageH0Minusk = fft.h0k.getImageH0minusK();
+		imageHkt = fft.hkt.imageDyCoeficcients;
 		//---//
 		
 		normalmapRenderer = new NormalRenderer(config.getN());
@@ -161,6 +165,11 @@ public class Water extends Renderable{
 		t_motion += (System.currentTimeMillis() - systemTime) * config.getWaveMotion();
 		t_distortion += (System.currentTimeMillis() - systemTime) * config.getDistortion();
 		systemTime = System.currentTimeMillis();
+		
+		// Josh
+		//---//
+		imageHkt = fft.hkt.imageDyCoeficcients;
+		//---//
 	}
 	
 	public void renderWireframe(){
@@ -171,6 +180,11 @@ public class Water extends Renderable{
 		
 		super.renderWireframe();
 		
+		// Josh
+		//---//
+		imageHkt = fft.hkt.imageDyCoeficcients;
+		//---//
+				
 		glFinish();
 	}
 	
@@ -293,11 +307,17 @@ public class Water extends Renderable{
 		//            render FFT'S           //
 		//-----------------------------------//
 		fft.render();
+		
 		normalmapRenderer.render(fft.getDy());
 
 		ssbo.bindBufferBase(1);
 		
 		super.render();
+		
+		// Josh
+		//---//
+		imageHkt = fft.hkt.imageDyCoeficcients;
+		//---//
 		
 		// glFinish() important, to prevent conflicts with following compute shaders
 		glFinish();

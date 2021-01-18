@@ -7,6 +7,7 @@ import org.oreon.core.context.BaseContext;
 import org.oreon.core.gl.platform.GLWindow;
 import org.oreon.core.gl.scenegraph.GLCamera;
 import org.oreon.core.gl.util.GLUtil;
+import org.oreon.core.platform.Window;
 
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
@@ -22,7 +23,7 @@ public class GLContext extends BaseContext{
 		init();
 
 		camera = new GLCamera();
-		window = new GLWindow(); 
+		window = new GLWindow();
 		resources = new GLResources();
 
 		if (!glfwInit())
@@ -50,6 +51,10 @@ public class GLContext extends BaseContext{
 	public static GLWindow getWindow(){
 		
 		return (GLWindow) window;
+	}
+	
+	public static void addWindow(Window window){
+		windows.add(window);
 	}
 	
 	public static void updateGlobalShaderParameters() {

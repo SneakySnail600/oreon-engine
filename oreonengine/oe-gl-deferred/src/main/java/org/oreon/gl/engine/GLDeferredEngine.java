@@ -31,6 +31,7 @@ import org.oreon.gl.components.filter.ssao.SSAO;
 import org.oreon.gl.components.terrain.GLTerrain;
 import org.oreon.gl.components.ui.GLGUI;
 import org.oreon.gl.components.water.UnderWaterRenderer;
+import org.oreon.gl.components.water.Water;
 import org.oreon.gl.engine.antialiasing.FXAA;
 import org.oreon.gl.engine.antialiasing.SampleCoverage;
 import org.oreon.gl.engine.deferred.DeferredLighting;
@@ -82,6 +83,7 @@ public class GLDeferredEngine extends RenderEngine{
 	// Josh
 	//---//
 	public GLTexture textureToDisplay;
+	public Water water;
 	//---//
 	
 	@Override
@@ -379,6 +381,7 @@ public class GLDeferredEngine extends RenderEngine{
 		
 		// Josh
 		//---//
+		textureToDisplay = water.imageHkt;
 		fullScreenQuad.setTexture(textureToDisplay);
 		//---//
 		

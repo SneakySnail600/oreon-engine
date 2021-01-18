@@ -1,5 +1,8 @@
 package org.oreon.core.context;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import org.oreon.core.CoreEngine;
 import org.oreon.core.RenderEngine;
 import org.oreon.core.platform.GLFWInput;
@@ -18,7 +21,14 @@ public abstract class BaseContext {
 	@Getter
 	protected static Camera camera;
 	@Getter
-	protected static Window window;
+//	protected static Window window;
+	
+	// Josh
+	//---//
+	public static Window window;
+	public static ArrayList<Window> windows;
+	//---//
+	
 	@Getter
 	protected static CoreEngine coreEngine;
 	@Getter
