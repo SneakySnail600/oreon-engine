@@ -39,10 +39,10 @@ public class FFT {
 	private float t_delta;
 	private FFTButterflyShader butterflyShader;
 	protected GLShaderProgram inversionShader;
-	private TwiddleFactors twiddleFactors;
 	
 	// Josh
 	//---//
+	public TwiddleFactors twiddleFactors;
 	public H0k h0k;
 	public Hkt hkt;
 	//---//

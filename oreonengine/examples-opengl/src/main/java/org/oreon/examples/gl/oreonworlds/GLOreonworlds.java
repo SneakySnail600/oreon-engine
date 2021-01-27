@@ -22,7 +22,7 @@ public class GLOreonworlds {
 		// Josh
 		//---//
 		Ocean ocean = new Ocean();
-		renderEngine.textureToDisplay = ocean.imageH0k;
+		renderEngine.textureToDisplay = ocean.imageTwiddle;
 		//---//
 		
 		renderEngine.init();

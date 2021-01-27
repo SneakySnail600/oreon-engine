@@ -84,6 +84,7 @@ public class Water extends Renderable{
 	// Josh
 	//---//
 	public GLTexture imageH0k;
+	public GLTexture imageTwiddle;
 	//---//
 	
 	public Water(int patches, GLShaderProgram shader, GLShaderProgram wireframeShader)
@@ -116,6 +117,7 @@ public class Water extends Renderable{
 		// Josh
 		//---//
 		imageH0k = fft.h0k.getImageH0k();
+		imageTwiddle = fft.twiddleFactors.getTexture();
 		//---//
 		
 		normalmapRenderer = new NormalRenderer(config.getN());
