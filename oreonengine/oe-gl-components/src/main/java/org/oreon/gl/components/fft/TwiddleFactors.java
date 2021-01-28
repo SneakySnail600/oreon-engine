@@ -48,10 +48,12 @@ public class TwiddleFactors {
 		int[] bitReversedIndices = new int[N];
 		int bits = (int) (Math.log(N)/Math.log(2));
 		
+		System.out.println("N: " + N);
 		for (int i = 0; i<N; i++)
 		{
 			int x = Integer.reverse(i);
 			x = Integer.rotateLeft(x, bits);
+			System.out.println("Bit reversed at index " + i + " is: " + x);
 			bitReversedIndices[i] = x;
 		}
 		

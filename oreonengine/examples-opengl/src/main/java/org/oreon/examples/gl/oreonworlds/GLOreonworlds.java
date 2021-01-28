@@ -27,10 +27,10 @@ public class GLOreonworlds {
 		
 		renderEngine.init();
 		
-		renderEngine.getSceneGraph().addObject(new Atmosphere());	
+//		renderEngine.getSceneGraph().addObject(new Atmosphere());	
 		renderEngine.getSceneGraph().setWater(new Ocean());
-		renderEngine.getSceneGraph().setTerrain(new Terrain(TerrainShader.getInstance(),
-				TerrainWireframeShader.getInstance(), TerrainShadowShader.getInstance()));
+//		renderEngine.getSceneGraph().setTerrain(new Terrain(TerrainShader.getInstance(),
+//				TerrainWireframeShader.getInstance(), TerrainShadowShader.getInstance()));
 				
 //		renderEngine.getSceneGraph().getRoot().addChild(new Palm01ClusterGroup());
 //		renderEngine.getSceneGraph().getRoot().addChild(new Plant01ClusterGroup());
