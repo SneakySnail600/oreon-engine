@@ -19,6 +19,7 @@ import org.oreon.core.gl.texture.GLTexture;
 import org.oreon.core.gl.util.GLUtil;
 import org.oreon.core.instanced.InstancedHandler;
 import org.oreon.core.light.LightHandler;
+import org.oreon.core.scenegraph.Node;
 import org.oreon.core.scenegraph.RenderList;
 import org.oreon.core.target.FrameBufferObject.Attachment;
 import org.oreon.gl.components.filter.bloom.Bloom;
@@ -79,6 +80,11 @@ public class GLDeferredEngine extends RenderEngine{
 	private boolean renderSSAOBuffer = false;
 	private boolean renderPostProcessingEffects = true;
 
+	public int textureHandle;
+	public int textureTarget;
+	public int textureWidth;
+	public int textureHeight;
+	public GLTexture textureToUse;
 	
 	@Override
 	public void init() {
@@ -370,8 +376,23 @@ public class GLDeferredEngine extends RenderEngine{
 			fullScreenQuad.render();
 		}
 		
+//		currentScene.handle = textureHandle;
+//		currentScene.target = textureTarget;
+		
+//		GLTexture textureFullScreen = new GLTexture(textureTarget, textureWidth, textureHeight);
+//		textureFullScreen.handle = textureHandle;
+		
+//		GLTexture textureFullScreen = new GLTexture(textureToUse.target, textureToUse.getMetaData().getWidth(), 
+//				textureToUse.getMetaData().getHeight());
+//		textureFullScreen.handle = textureToUse.handle;
+		
 		fullScreenQuad.setTexture(currentScene);
 		fullScreenQuad.render();
+		
+		// Josh
+		//---//
+//		Node water = sceneGraph.getWater();
+		//---//
 		
 		if (BaseContext.getConfig().isLensFlareEnabled()
 			&& !renderDeferredLightingScene && !renderSSAOBuffer

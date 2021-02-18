@@ -15,14 +15,19 @@ public class GLOreonworlds {
 
 		GLContext.create();
 		
-		GLDeferredEngine renderEngine = new GLDeferredEngine(); 
+		GLDeferredEngine renderEngine = new GLDeferredEngine();
 //		renderEngine.setGui(new GLSystemMonitor());
 		renderEngine.init();
 		
-		renderEngine.getSceneGraph().addObject(new Atmosphere());	
-		renderEngine.getSceneGraph().setWater(new Ocean());
-		renderEngine.getSceneGraph().setTerrain(new Terrain(TerrainShader.getInstance(),
-				TerrainWireframeShader.getInstance(), TerrainShadowShader.getInstance()));
+//		renderEngine.getSceneGraph().addObject(new Atmosphere());	
+		Ocean ocean = new Ocean();
+		renderEngine.getSceneGraph().setWater(ocean);
+		renderEngine.textureHandle = ocean.textureHandle;
+		renderEngine.textureTarget = ocean.textureHandle;
+		renderEngine.textureToUse = ocean.textureToUse;
+		
+//		renderEngine.getSceneGraph().setTerrain(new Terrain(TerrainShader.getInstance(),
+//				TerrainWireframeShader.getInstance(), TerrainShadowShader.getInstance()));
 		
 //		renderEngine.getSceneGraph().getRoot().addChild(new Palm01ClusterGroup());
 //		renderEngine.getSceneGraph().getRoot().addChild(new Plant01ClusterGroup());

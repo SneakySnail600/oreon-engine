@@ -36,7 +36,7 @@ public class FullScreenQuad {
 		getShader().updateUniforms(texture);
 		getVao().draw();
 		getConfig().disable();
-	}	
+	}
 
 	public RenderParameter getConfig() {
 		return config;

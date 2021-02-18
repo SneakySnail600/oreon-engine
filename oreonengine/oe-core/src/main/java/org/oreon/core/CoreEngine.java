@@ -21,6 +21,8 @@ public class CoreEngine{
 	private Input input;
 	private RenderEngine renderEngine;
 	private GLFWErrorCallback errorCallback;
+
+	
 	
 	private void init()
 	{

@@ -22,6 +22,7 @@ import org.oreon.core.gl.memory.GLPatchVBO;
 import org.oreon.core.gl.memory.GLShaderStorageBuffer;
 import org.oreon.core.gl.pipeline.GLShaderProgram;
 import org.oreon.core.gl.scenegraph.GLRenderInfo;
+import org.oreon.core.gl.surface.FullScreenQuad;
 import org.oreon.core.gl.texture.GLTexture;
 import org.oreon.core.gl.wrapper.parameter.WaterRenderParameter;
 import org.oreon.core.gl.wrapper.texture.TextureImage2D;
@@ -80,9 +81,17 @@ public class Water extends Renderable{
 	@Getter
 	private float t_distortion;
 	private long systemTime = System.currentTimeMillis();
+	
+	public GLTexture textureToUse;
+	public int textureHandle;
+	public int textureTarget;
+	public int textureWidth;
+	public int textureHeight;
+	
+	FullScreenQuad quad;
 
 	public Water(int patches, GLShaderProgram shader, GLShaderProgram wireframeShader)
-	{		
+	{				
 		config = new WaterConfig();
 		config.loadFile("water-config.properties");
 		GLContext.getResources().setWaterConfig(config);
@@ -107,6 +116,11 @@ public class Water extends Renderable{
 		fft.setT_delta(config.getT_delta());
 		fft.setChoppy(config.isChoppy());
 		fft.init();
+		
+		textureToUse = fft.h0k.getImageH0k();
+		quad = new FullScreenQuad();
+		quad.setTexture(textureToUse);
+		quad.render();
 		
 		normalmapRenderer = new NormalRenderer(config.getN());
 		getNormalmapRenderer().setStrength(config.getNormalStrength());
@@ -285,6 +299,19 @@ public class Water extends Renderable{
 		fft.render();
 		normalmapRenderer.render(fft.getDy());
 
+		// Josh
+//		textureToUse = fft.h0k.getImageH0k();
+		textureToUse = fft.getDx();
+//		textureHandle = textureToUse.getHandle();
+//		textureTarget = textureToUse.getTarget();
+//		textureWidth = textureToUse.getMetaData().getWidth();
+//		textureHeight = textureToUse.getMetaData().getHeight();
+		
+//		super.render();
+		
+		quad.setTexture(textureToUse);
+		quad.render();
+		
 		ssbo.bindBufferBase(1);
 		
 		super.render();

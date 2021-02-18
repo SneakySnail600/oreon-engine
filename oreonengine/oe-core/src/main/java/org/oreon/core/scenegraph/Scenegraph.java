@@ -128,4 +128,7 @@ public class Scenegraph extends Node{
 		return hasWater;
 	}
 
+	public Node getWater() {
+		return water;
+	}
 }

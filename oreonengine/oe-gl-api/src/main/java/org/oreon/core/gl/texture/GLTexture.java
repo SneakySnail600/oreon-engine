@@ -41,8 +41,8 @@ import lombok.Getter;
 @Getter
 public class GLTexture extends Image{
 	
-	private int handle;
-	private int target;
+	public int handle;
+	public int target;
 	
 	public GLTexture(int target, int width, int height) {
 	
