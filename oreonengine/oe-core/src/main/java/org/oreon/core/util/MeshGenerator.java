@@ -12,10 +12,15 @@ public class MeshGenerator {
 	{
 		Vertex[] vertices = new Vertex[4];
 		int[] indices = {0,2,1,1,2,3};
-		vertices[0] = new Vertex(new Vec3f(-1,-1,0), new Vec2f(0,0));
-		vertices[1] = new Vertex(new Vec3f(1,-1,0), new Vec2f(1,0));
-		vertices[2] = new Vertex(new Vec3f(-1,1,0), new Vec2f(0,1));
-		vertices[3] = new Vertex(new Vec3f(1,1,0), new Vec2f(1,1));
+//		vertices[0] = new Vertex(new Vec3f(-1,-1,0), new Vec2f(0,0));
+//		vertices[1] = new Vertex(new Vec3f(1,-1,0), new Vec2f(1,0));
+//		vertices[2] = new Vertex(new Vec3f(-1,1,0), new Vec2f(0,1));
+//		vertices[3] = new Vertex(new Vec3f(1,1,0), new Vec2f(1,1));
+		float zPushedBack = 0f;
+		vertices[0] = new Vertex(new Vec3f(-1,-1,zPushedBack), new Vec2f(0,0));
+		vertices[1] = new Vertex(new Vec3f(1,-1,zPushedBack), new Vec2f(1,0));
+		vertices[2] = new Vertex(new Vec3f(-1,1,zPushedBack), new Vec2f(0,1));
+		vertices[3] = new Vertex(new Vec3f(1,1,zPushedBack), new Vec2f(1,1));
 		Mesh quad = new Mesh(vertices, indices);
 		quad.setVertexLayout(VertexLayout.POS_UV);
 		return quad;

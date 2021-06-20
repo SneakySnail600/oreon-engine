@@ -301,7 +301,7 @@ public class Water extends Renderable{
 
 		// Josh
 //		textureToUse = fft.h0k.getImageH0k();
-		textureToUse = fft.getDx();
+		textureToUse = fft.hkt.getImageDyCoeficcients();
 //		textureHandle = textureToUse.getHandle();
 //		textureTarget = textureToUse.getTarget();
 //		textureWidth = textureToUse.getMetaData().getWidth();
